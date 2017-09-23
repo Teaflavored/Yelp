@@ -13,7 +13,10 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var resturantPhotoImageView: UIImageView!
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
-    
+    @IBOutlet weak var categoriesLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var ratingImageView: UIImageView!
+
     fileprivate var business: Business?
 
     override func awakeFromNib() {
@@ -38,6 +41,18 @@ class BusinessTableViewCell: UITableViewCell {
 
         if let distance = business?.distance {
             distanceLabel.text = distance
+        }
+
+        if let address = business?.address {
+            addressLabel.text = address
+        }
+
+        if let ratingImageUrl = business?.ratingImageURL {
+            ratingImageView.setImageWith(ratingImageUrl)
+        }
+
+        if let categories = business?.categories {
+            categoriesLabel.text = categories
         }
     }
 }

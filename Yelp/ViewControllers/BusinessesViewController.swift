@@ -59,8 +59,7 @@ UITableViewDataSource {
         guard let tableCell = tableView.dequeueReusableCell(withIdentifier: "businessCell") as? BusinessTableViewCell else {
             return UITableViewCell()
         }
-        
-        tableCell.updateWithBusiness(businesses[indexPath.row])
+    tableCell.updateWithBusiness(businesses[indexPath.row])
 
         return tableCell
     }
