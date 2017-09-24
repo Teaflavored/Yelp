@@ -72,6 +72,11 @@ FilterDelegate {
 
         return tableCell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setSelected(false, animated: true)
+    }
     
     func onSave(viewController: FiltersViewController) {
         searchWithSearchSettings()
