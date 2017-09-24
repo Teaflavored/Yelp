@@ -238,6 +238,39 @@
                                             <outlet property="sortLabel" destination="Rxe-H6-sxN" id="smz-rI-kCO"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="categoryCell" id="bgC-B4-Vaq" customClass="CategoryCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bgC-B4-Vaq" id="V9C-cJ-L1c">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7B1-Sa-CFt">
+                                                    <rect key="frame" x="8" y="8" width="83" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="NOq-eZ-01I">
+                                                    <rect key="frame" x="318" y="8" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onToggleSwitch:" destination="bgC-B4-Vaq" eventType="valueChanged" id="FNr-b3-3hb"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7B1-Sa-CFt" firstAttribute="leading" secondItem="V9C-cJ-L1c" secondAttribute="leading" constant="8" id="8PW-Zb-Zba"/>
+                                                <constraint firstItem="NOq-eZ-01I" firstAttribute="top" secondItem="V9C-cJ-L1c" secondAttribute="top" constant="8" id="I5j-IL-WVT"/>
+                                                <constraint firstItem="7B1-Sa-CFt" firstAttribute="top" secondItem="V9C-cJ-L1c" secondAttribute="top" constant="8" id="Jnr-Jw-I8y"/>
+                                                <constraint firstAttribute="trailing" secondItem="NOq-eZ-01I" secondAttribute="trailing" constant="8" id="Ll9-dW-XRo"/>
+                                                <constraint firstItem="NOq-eZ-01I" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="7B1-Sa-CFt" secondAttribute="trailing" constant="8" id="Wrk-4Z-JyU"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categorySwitch" destination="NOq-eZ-01I" id="vVr-it-YBe"/>
+                                            <outlet property="nameLabel" destination="7B1-Sa-CFt" id="Yib-0D-x1r"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Mfd-Ex-fHm" id="LOJ-y3-IjZ"/>

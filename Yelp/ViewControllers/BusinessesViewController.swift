@@ -88,6 +88,14 @@ FilterDelegate {
         viewController.hasDeals = SearchSettings.instance.getDealsValue()
         viewController.searchRadiusInMeters = SearchSettings.instance.getSearchRadius()
         viewController.sort = SearchSettings.instance.getSort()
+
+        if let selectedCategories = SearchSettings.instance.getCategories() {
+            viewController.selectedCategories = selectedCategories.reduce([String: Bool](), { (result: [String:Bool], nextValue: String) -> [String: Bool] in
+                var newResult = result
+                newResult[nextValue] = true
+                return newResult
+            })
+        }
     }
 }
 

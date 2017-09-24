@@ -233,8 +233,15 @@ class SearchSettings {
         return sort
     }
     
-    func updateCategories(_ newCategories: [String]?) {
-        selectedCategories = newCategories
+    func updateCategories(_ newCategories: [String:Bool]) {
+        var categoryCodes = [String]()
+        newCategories.forEach { (key, value) in
+            if value {
+                categoryCodes.append(key)
+            }
+        }
+        
+        selectedCategories = categoryCodes
     }
 
     func getCategories() -> [String]? {

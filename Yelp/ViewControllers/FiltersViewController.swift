@@ -15,7 +15,8 @@ protocol FilterDelegate: class {
 class FiltersViewController: UIViewController,
 UITableViewDataSource,
 UITableViewDelegate,
-DealsCellDelegate {
+DealsCellDelegate,
+CategoryCellDelegate {
 
     @IBOutlet weak var filterTable: UITableView!
     weak var delegate: FilterDelegate?
@@ -29,7 +30,7 @@ DealsCellDelegate {
         self.delegate?.onSave(viewController: self)
     }
 
-    var selectedCategories: [String]?
+    var selectedCategories: [String:Bool] = [:]
     var searchRadiusInMeters: Int?
     var hasDeals: Bool = false
     var sort: YelpSortMode = YelpSortMode.bestMatched
@@ -151,9 +152,31 @@ DealsCellDelegate {
             }
 
             return cell
+        case 3:
+            let cell = getCellWithIdentifier("categoryCell") as! CategoryCell
+            let categoryData = SearchSettings.instance.categories
+            let categoryDatum = categoryData[indexPath.row]
+            let name = categoryDatum["name"]
+            let categoryCode = categoryDatum["code"]
+            
+            cell.delegate = self
+            cell.nameLabel.text = name
+            cell.categoryCode = categoryCode
+            cell.categorySwitch.isOn = false
+
+            if let selectedCategory = selectedCategories[categoryCode!] {
+                cell.categorySwitch.isOn = selectedCategory
+            }
+            
+            return cell
         default:
             return UITableViewCell()
         }
+    }
+
+    func onToggleCategorySwitch(categoryCell: CategoryCell, newValue: Bool) {
+        let categoryCode = categoryCell.categoryCode!
+        selectedCategories[categoryCode] = newValue
     }
 
     func dealsSwitchCellDidToggle(cell: DealsCell, newValue: Bool) {
