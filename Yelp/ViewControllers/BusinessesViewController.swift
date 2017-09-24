@@ -77,6 +77,7 @@ FilterDelegate {
             sort: SearchSettings.instance.getSort(),
             categories: SearchSettings.instance.getCategories(),
             deals: SearchSettings.instance.getDealsValue(),
+            distance: SearchSettings.instance.getSearchRadius(),
             completion: businessCompletion
         )
     }
