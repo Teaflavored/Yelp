@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FiltersViewController: UIViewController {
+class FiltersViewController: UIViewController,
+UITableViewDataSource,
+UITableViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,19 @@ class FiltersViewController: UIViewController {
     @IBAction func dismissFilter(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
     }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection 
+        section: Int) -> Int {
+        return 10
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
     /*
     // MARK: - Navigation
 

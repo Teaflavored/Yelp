@@ -5,7 +5,6 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -152,36 +151,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-ss-9hR">
-                                <rect key="frame" x="16" y="72" width="335" height="47"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering a deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-g5-2qZ">
-                                        <rect key="frame" x="8" y="8" width="113" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IvA-ec-IB6">
-                                        <rect key="frame" x="278" y="8" width="51" height="31"/>
-                                    </switch>
-                                </subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hgy-sf-qqU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="IvA-ec-IB6" secondAttribute="bottom" constant="8" id="RPd-l2-qIY"/>
-                                    <constraint firstItem="IvA-ec-IB6" firstAttribute="top" secondItem="iNd-ss-9hR" secondAttribute="top" constant="8" id="Tj0-hf-Bqd"/>
-                                    <constraint firstAttribute="trailing" secondItem="IvA-ec-IB6" secondAttribute="trailing" constant="8" id="dHb-13-Shj"/>
-                                    <constraint firstItem="kdz-g5-2qZ" firstAttribute="leading" secondItem="iNd-ss-9hR" secondAttribute="leading" constant="8" id="mEc-P8-l6A"/>
-                                    <constraint firstItem="kdz-g5-2qZ" firstAttribute="top" secondItem="iNd-ss-9hR" secondAttribute="top" constant="8" id="mh7-3Y-UDK"/>
-                                    <constraint firstAttribute="bottom" secondItem="kdz-g5-2qZ" secondAttribute="bottom" constant="8" id="r3l-9A-dDM"/>
-                                    <constraint firstItem="IvA-ec-IB6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kdz-g5-2qZ" secondAttribute="trailing" constant="8" id="x3G-G7-VlI"/>
-                                </constraints>
-                            </view>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="iNd-ss-9hR">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering a deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-g5-2qZ">
+                                            <rect key="frame" x="8" y="8" width="113" height="31"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IvA-ec-IB6">
+                                            <rect key="frame" x="318" y="8" width="51" height="31"/>
+                                        </switch>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="IvA-ec-IB6" secondAttribute="bottom" constant="8" id="RPd-l2-qIY"/>
+                                        <constraint firstItem="IvA-ec-IB6" firstAttribute="top" secondItem="iNd-ss-9hR" secondAttribute="top" constant="8" id="Tj0-hf-Bqd"/>
+                                        <constraint firstAttribute="trailing" secondItem="IvA-ec-IB6" secondAttribute="trailing" constant="8" id="dHb-13-Shj"/>
+                                        <constraint firstItem="kdz-g5-2qZ" firstAttribute="leading" secondItem="iNd-ss-9hR" secondAttribute="leading" constant="8" id="mEc-P8-l6A"/>
+                                        <constraint firstItem="kdz-g5-2qZ" firstAttribute="top" secondItem="iNd-ss-9hR" secondAttribute="top" constant="8" id="mh7-3Y-UDK"/>
+                                        <constraint firstAttribute="bottom" secondItem="kdz-g5-2qZ" secondAttribute="bottom" constant="8" id="r3l-9A-dDM"/>
+                                        <constraint firstItem="IvA-ec-IB6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kdz-g5-2qZ" secondAttribute="trailing" constant="8" id="x3G-G7-VlI"/>
+                                    </constraints>
+                                </view>
+                                <connections>
+                                    <outlet property="dataSource" destination="Mfd-Ex-fHm" id="LOJ-y3-IjZ"/>
+                                    <outlet property="delegate" destination="Mfd-Ex-fHm" id="atm-o3-eLq"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="iNd-ss-9hR" firstAttribute="top" secondItem="6tF-xV-xwT" secondAttribute="bottom" constant="8" id="6df-k0-MbI"/>
-                            <constraint firstItem="iNd-ss-9hR" firstAttribute="leading" secondItem="svC-QT-ogf" secondAttribute="leadingMargin" id="AfO-m2-wkL"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iNd-ss-9hR" secondAttribute="trailing" constant="8" id="vRI-Sa-QrL"/>
+                            <constraint firstItem="KGl-jh-urD" firstAttribute="top" secondItem="Hgy-sf-qqU" secondAttribute="bottom" id="9nl-zb-Jes"/>
+                            <constraint firstItem="Hgy-sf-qqU" firstAttribute="top" secondItem="6tF-xV-xwT" secondAttribute="bottom" id="JNz-PA-zmh"/>
+                            <constraint firstItem="Hgy-sf-qqU" firstAttribute="leading" secondItem="svC-QT-ogf" secondAttribute="leading" id="af8-1j-ia1"/>
+                            <constraint firstAttribute="trailing" secondItem="Hgy-sf-qqU" secondAttribute="trailing" id="f2W-bq-ffU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Filters" id="qbu-cc-3ZZ">

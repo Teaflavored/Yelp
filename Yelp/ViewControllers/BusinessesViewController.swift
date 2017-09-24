@@ -16,9 +16,16 @@ UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
-    var businesses: [Business]! = []
-    var searchBar: UISearchBar!
-    
+    fileprivate var businesses: [Business]! = []
+    fileprivate var searchBar: UISearchBar!
+    fileprivate lazy var businessCompletion = {
+        [unowned self]
+        (businesses: [Business]?, error: Error?) -> Void in
+        
+        self.businesses = businesses
+        self.tableView.reloadData()
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 100
@@ -33,20 +40,16 @@ UISearchBarDelegate {
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
 
-        // table view setup
-        Business.searchWithTerm(term: "Thai", completion: {
-            (businesses: [Business]?, error: Error?) -> Void in
-            
-            self.businesses = businesses
-            self.tableView.reloadData()
-            
-            }
-        )
+        Business.searchWithTerm(term: "", completion: businessCompletion)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        Business.searchWithTerm(term: searchText, completion: businessCompletion)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +64,7 @@ UISearchBarDelegate {
 
         return tableCell
     }
-    
+
     /*
      // MARK: - Navigation
      
