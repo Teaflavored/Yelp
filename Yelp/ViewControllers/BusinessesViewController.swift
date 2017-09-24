@@ -8,6 +8,7 @@
 
 import UIKit
 import AFNetworking
+import PKHUD
 
 class BusinessesViewController: UIViewController,
     UITableViewDelegate,
@@ -24,12 +25,15 @@ FilterDelegate {
         [unowned self]
         (businesses: [Business]?, error: Error?) -> Void in
         
+        PKHUD.sharedHUD.hide()
         self.businesses = businesses
         self.tableView.reloadData()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        PKHUD.sharedHUD.contentView = PKHUDProgressView()
+
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
 
@@ -74,6 +78,7 @@ FilterDelegate {
     }
 
     private func searchWithSearchSettings() -> Void {
+        PKHUD.sharedHUD.show()
         Business.searchWithTerm(
             term: SearchSettings.instance.getSearchTerm(),
             sort: SearchSettings.instance.getSort(),
