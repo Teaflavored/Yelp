@@ -27,6 +27,7 @@ UISearchBarDelegate {
         // Initialize the UISearchBar
         searchBar = UISearchBar()
         searchBar.delegate = self
+        searchBar.placeholder = "Search Restaurants"
         
         // Add SearchBar to the NavigationBar
         searchBar.sizeToFit()
