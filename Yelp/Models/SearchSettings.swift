@@ -201,14 +201,6 @@ class SearchSettings {
     fileprivate var sort: YelpSortMode = YelpSortMode.bestMatched
     fileprivate var searchTerm: String = ""
 
-    func clearSettings() -> Void {
-        selectedCategories = []
-        hasDeals = false
-        searchRadiusInMeters = 8046
-        sort = YelpSortMode.bestMatched
-        searchTerm = ""
-    }
-
     func updateDealsSwitch(_ newValue: Bool) {
         hasDeals = newValue
     }
@@ -225,7 +217,7 @@ class SearchSettings {
         return searchTerm
     }
 
-    func updateSearchRadius(_ searchRadius: Int) {
+    func updateSearchRadius(_ searchRadius: Int?) {
         searchRadiusInMeters = searchRadius
     }
 
@@ -239,6 +231,10 @@ class SearchSettings {
 
     func getSort() -> YelpSortMode {
         return sort
+    }
+    
+    func updateCategories(_ newCategories: [String]?) {
+        selectedCategories = newCategories
     }
 
     func getCategories() -> [String]? {

@@ -22,13 +22,20 @@ DealsCellDelegate {
     lazy var onSaveFilters = {
         [unowned self]
         () -> Void in
-        print("HI")
+        SearchSettings.instance.updateSort(self.sort)
+        SearchSettings.instance.updateSearchRadius(self.searchRadiusInMeters)
+        SearchSettings.instance.updateDealsSwitch(self.hasDeals)
+        SearchSettings.instance.updateCategories(self.selectedCategories)
         self.delegate?.onSave(viewController: self)
     }
 
+    var selectedCategories: [String]?
+    var searchRadiusInMeters: Int?
+    var hasDeals: Bool = false
+    var sort: YelpSortMode = YelpSortMode.bestMatched
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
 
@@ -85,7 +92,7 @@ DealsCellDelegate {
         case 0:
             let cell = getCellWithIdentifier("dealsCell") as! DealsCell
             cell.delegate = self
-            cell.dealSwitch.isOn = SearchSettings.instance.getDealsValue()
+            cell.dealSwitch.isOn = hasDeals
 
             return cell
         default:
@@ -94,7 +101,7 @@ DealsCellDelegate {
     }
 
     func dealsSwitchCellDidToggle(cell: DealsCell, newValue: Bool) {
-        SearchSettings.instance.updateDealsSwitch(newValue)
+        hasDeals = newValue
     }
 
     fileprivate func getCellWithIdentifier(_ identifier: String) -> UITableViewCell {

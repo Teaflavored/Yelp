@@ -85,6 +85,7 @@ FilterDelegate {
         let destination = segue.destination as! UINavigationController
         let viewController = destination.viewControllers[0] as! FiltersViewController
         viewController.delegate = self
+        viewController.hasDeals = SearchSettings.instance.getDealsValue()
     }
 }
 
