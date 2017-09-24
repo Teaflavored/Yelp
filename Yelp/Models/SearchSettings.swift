@@ -11,12 +11,12 @@ import Foundation
 class SearchSettings {
     static let instance  = SearchSettings()
 
-    let searchRadiusesMap: [Int: String] = [
-        8046: "5 miles",
-        16093: "10 miles",
-        24140: "15 miles",
-        32186: "20 miles",
-        40000: "25 miles",
+    let searchRadiusesMap: [[String: Any]] = [
+        ["name": "5 miles", "value": 8046],
+        ["name": "10 miles", "value": 16093],
+        ["name": "15 miles", "value": 24140],
+        ["name": "20 miles", "value": 32186],
+        ["name": "25 miles", "value": 40000],
     ]
     
     let sortValuesMap: [YelpSortMode: String] = [

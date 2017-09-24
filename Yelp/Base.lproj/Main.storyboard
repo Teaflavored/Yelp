@@ -187,6 +187,31 @@
                                             <outlet property="dealSwitch" destination="IvA-ec-IB6" id="ZK8-w6-vZq"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="distanceCell" id="Jf8-WC-N7Z" customClass="DistanceCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jf8-WC-N7Z" id="4XZ-Qc-fJr">
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distance label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KfR-qn-2Oc">
+                                                    <rect key="frame" x="8" y="8" width="320" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="KfR-qn-2Oc" firstAttribute="top" secondItem="4XZ-Qc-fJr" secondAttribute="top" constant="8" id="8QH-m9-AXF"/>
+                                                <constraint firstAttribute="trailing" secondItem="KfR-qn-2Oc" secondAttribute="trailing" constant="8" id="Ou2-8O-iZ9"/>
+                                                <constraint firstItem="KfR-qn-2Oc" firstAttribute="leading" secondItem="4XZ-Qc-fJr" secondAttribute="leading" constant="8" id="nNA-tL-W55"/>
+                                                <constraint firstAttribute="bottom" secondItem="KfR-qn-2Oc" secondAttribute="bottom" constant="8" id="yqd-pi-t6C"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="distanceLabel" destination="KfR-qn-2Oc" id="H6U-kE-KWo"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Mfd-Ex-fHm" id="LOJ-y3-IjZ"/>

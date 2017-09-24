@@ -87,12 +87,46 @@ DealsCellDelegate {
         }
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setSelected(false, animated: true)
+
+        switch indexPath.section {
+        case 1:
+            let distanceCell = cell as! DistanceCell
+            searchRadiusInMeters = distanceCell.distanceValue
+            filterTable.reloadData()
+        default:
+            return
+        }
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
             let cell = getCellWithIdentifier("dealsCell") as! DealsCell
             cell.delegate = self
             cell.dealSwitch.isOn = hasDeals
+            return cell
+        case 1:
+            let cell = getCellWithIdentifier("distanceCell") as! DistanceCell
+            let distanceData = SearchSettings.instance.searchRadiusesMap
+            let distanceDatum = distanceData[indexPath.row]
+            let name = distanceDatum["name"] as! String
+            let value = distanceDatum["value"] as! Int
+            
+            cell.distanceLabel.text = name
+            cell.distanceValue = value
+
+            if let unwrappedSearchRadius = searchRadiusInMeters {
+                if value == unwrappedSearchRadius {
+                    cell.accessoryType = .checkmark
+                } else {
+                    cell.accessoryType = .none
+                }
+            } else {
+                cell.accessoryType = .none
+            }
 
             return cell
         default:

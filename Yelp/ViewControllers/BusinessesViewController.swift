@@ -86,6 +86,7 @@ FilterDelegate {
         let viewController = destination.viewControllers[0] as! FiltersViewController
         viewController.delegate = self
         viewController.hasDeals = SearchSettings.instance.getDealsValue()
+        viewController.searchRadiusInMeters = SearchSettings.instance.getSearchRadius()
     }
 }
 
