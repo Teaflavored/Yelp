@@ -19,10 +19,10 @@ class SearchSettings {
         40000: "25 miles",
     ]
     
-    let sortValuesMap: [Int: String] = [
-        0: "Best matched",
-        1: "Distance",
-        2: "Highest Rated",
+    let sortValuesMap: [YelpSortMode: String] = [
+        YelpSortMode.bestMatched: "Best matched",
+        YelpSortMode.distance: "Distance",
+        YelpSortMode.highestRated: "Highest Rated",
     ]
 
     let categories: [[String: String]] = [["name" : "Afghan", "code": "afghani"],
@@ -195,8 +195,53 @@ class SearchSettings {
                       ["name" : "Wraps", "code": "wraps"],
                       ["name" : "Yugoslav", "code": "yugoslav"]]
     
-    fileprivate var selectedCategories: [String] = []
+    fileprivate var selectedCategories: [String]?
+    fileprivate var searchRadiusInMeters: Int?
     fileprivate var hasDeals: Bool = false
-    fileprivate var searchRadiusInMeters: Int = 8046
-    fileprivate var sort = 0
+    fileprivate var sort: YelpSortMode = YelpSortMode.bestMatched
+    fileprivate var searchTerm: String = ""
+
+    func clearSettings() -> Void {
+        selectedCategories = []
+        hasDeals = false
+        searchRadiusInMeters = 8046
+        sort = YelpSortMode.bestMatched
+        searchTerm = ""
+    }
+
+    func updateDealsSwitch(_ newValue: Bool) {
+        hasDeals = newValue
+    }
+
+    func getDealsValue() -> Bool {
+        return hasDeals
+    }
+
+    func updateSearchTerm(_ newSearchTerm: String) -> Void {
+        searchTerm = newSearchTerm
+    }
+
+    func getSearchTerm() -> String {
+        return searchTerm
+    }
+
+    func updateSearchRadius(_ searchRadius: Int) {
+        searchRadiusInMeters = searchRadius
+    }
+
+    func getSearchRadius() -> Int? {
+        return searchRadiusInMeters
+    }
+
+    func updateSort(_ newSortValue: YelpSortMode) -> Void {
+        sort = newSortValue
+    }
+
+    func getSort() -> YelpSortMode {
+        return sort
+    }
+
+    func getCategories() -> [String]? {
+        return selectedCategories
+    }
 }

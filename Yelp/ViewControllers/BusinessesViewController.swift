@@ -12,7 +12,8 @@ import AFNetworking
 class BusinessesViewController: UIViewController,
     UITableViewDelegate,
 UITableViewDataSource,
-UISearchBarDelegate {
+UISearchBarDelegate,
+FilterDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -40,7 +41,7 @@ UISearchBarDelegate {
         searchBar.sizeToFit()
         navigationItem.titleView = searchBar
 
-        Business.searchWithTerm(term: "", completion: businessCompletion)
+        searchWithSearchSettings()
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,7 +50,8 @@ UISearchBarDelegate {
     }
 
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        Business.searchWithTerm(term: searchText, completion: businessCompletion)
+        SearchSettings.instance.updateSearchTerm(searchText)
+        searchWithSearchSettings()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -64,15 +66,25 @@ UISearchBarDelegate {
 
         return tableCell
     }
+    
+    func onSave(viewController: FiltersViewController) {
+        searchWithSearchSettings()
+    }
 
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    private func searchWithSearchSettings() -> Void {
+        Business.searchWithTerm(
+            term: SearchSettings.instance.getSearchTerm(),
+            sort: SearchSettings.instance.getSort(),
+            categories: SearchSettings.instance.getCategories(),
+            deals: SearchSettings.instance.getDealsValue(),
+            completion: businessCompletion
+        )
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! UINavigationController
+        let viewController = destination.viewControllers[0] as! FiltersViewController
+        viewController.delegate = self
+    }
 }
 

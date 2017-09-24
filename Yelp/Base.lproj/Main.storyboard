@@ -154,31 +154,40 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hgy-sf-qqU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="iNd-ss-9hR">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering a deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-g5-2qZ">
-                                            <rect key="frame" x="8" y="8" width="113" height="31"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IvA-ec-IB6">
-                                            <rect key="frame" x="318" y="8" width="51" height="31"/>
-                                        </switch>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="IvA-ec-IB6" secondAttribute="bottom" constant="8" id="RPd-l2-qIY"/>
-                                        <constraint firstItem="IvA-ec-IB6" firstAttribute="top" secondItem="iNd-ss-9hR" secondAttribute="top" constant="8" id="Tj0-hf-Bqd"/>
-                                        <constraint firstAttribute="trailing" secondItem="IvA-ec-IB6" secondAttribute="trailing" constant="8" id="dHb-13-Shj"/>
-                                        <constraint firstItem="kdz-g5-2qZ" firstAttribute="leading" secondItem="iNd-ss-9hR" secondAttribute="leading" constant="8" id="mEc-P8-l6A"/>
-                                        <constraint firstItem="kdz-g5-2qZ" firstAttribute="top" secondItem="iNd-ss-9hR" secondAttribute="top" constant="8" id="mh7-3Y-UDK"/>
-                                        <constraint firstAttribute="bottom" secondItem="kdz-g5-2qZ" secondAttribute="bottom" constant="8" id="r3l-9A-dDM"/>
-                                        <constraint firstItem="IvA-ec-IB6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kdz-g5-2qZ" secondAttribute="trailing" constant="8" id="x3G-G7-VlI"/>
-                                    </constraints>
-                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="dealsCell" id="rQ9-AE-AAY" customClass="DealsCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rQ9-AE-AAY" id="a8x-jR-qAh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offering a deal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdz-g5-2qZ">
+                                                    <rect key="frame" x="8" y="8" width="113" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="IvA-ec-IB6">
+                                                    <rect key="frame" x="318" y="8" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="onToggleDealsSwitch:" destination="rQ9-AE-AAY" eventType="valueChanged" id="Kl1-Vz-9Ot"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="kdz-g5-2qZ" firstAttribute="top" secondItem="a8x-jR-qAh" secondAttribute="top" constant="8" id="8Kf-VR-NXd"/>
+                                                <constraint firstItem="kdz-g5-2qZ" firstAttribute="leading" secondItem="a8x-jR-qAh" secondAttribute="leading" constant="8" id="9tu-ED-st5"/>
+                                                <constraint firstItem="IvA-ec-IB6" firstAttribute="top" secondItem="a8x-jR-qAh" secondAttribute="top" constant="8" id="KCc-m7-7RC"/>
+                                                <constraint firstAttribute="trailing" secondItem="IvA-ec-IB6" secondAttribute="trailing" constant="8" id="KKX-Rh-iuc"/>
+                                                <constraint firstItem="IvA-ec-IB6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kdz-g5-2qZ" secondAttribute="trailing" constant="8" id="ZkH-6x-IDe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="dealSwitch" destination="IvA-ec-IB6" id="ZK8-w6-vZq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Mfd-Ex-fHm" id="LOJ-y3-IjZ"/>
                                     <outlet property="delegate" destination="Mfd-Ex-fHm" id="atm-o3-eLq"/>
@@ -199,7 +208,15 @@
                                 <action selector="dismissFilter:" destination="Mfd-Ex-fHm" id="GKz-Kr-kan"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="zf4-wc-QgI">
+                            <connections>
+                                <action selector="saveFilters:" destination="Mfd-Ex-fHm" id="ZrY-rC-XWT"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="filterTable" destination="Hgy-sf-qqU" id="L1P-0W-dth"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kRh-JH-ezn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
