@@ -104,6 +104,7 @@
                                             <outlet property="addressLabel" destination="B8n-Pc-2HM" id="sCN-wS-nwW"/>
                                             <outlet property="categoriesLabel" destination="lDT-zE-aqk" id="J7A-gd-1C8"/>
                                             <outlet property="distanceLabel" destination="eaj-bb-afv" id="Wnr-N5-clk"/>
+                                            <outlet property="numberOfReviewsLabel" destination="6oc-7a-rNe" id="cyC-k8-xsL"/>
                                             <outlet property="ratingImageView" destination="Kms-Mr-Onb" id="xja-3k-rRu"/>
                                             <outlet property="restaurantNameLabel" destination="hLq-8j-2Hm" id="ggR-rh-UDq"/>
                                             <outlet property="resturantPhotoImageView" destination="hJI-ZQ-laB" id="WGM-vk-ujp"/>

@@ -16,6 +16,7 @@ class BusinessTableViewCell: UITableViewCell {
     @IBOutlet weak var categoriesLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var ratingImageView: UIImageView!
+    @IBOutlet weak var numberOfReviewsLabel: UILabel!
 
     fileprivate var business: Business?
 
@@ -53,6 +54,10 @@ class BusinessTableViewCell: UITableViewCell {
 
         if let categories = business?.categories {
             categoriesLabel.text = categories
+        }
+
+        if let numberOfReviews = business?.reviewCount {
+            numberOfReviewsLabel.text = "\(numberOfReviews) Reviews"
         }
     }
 }
