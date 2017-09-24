@@ -68,7 +68,8 @@ CategoryCellDelegate {
         case 0:
             return 1
         case 1:
-            return SearchSettings.instance.searchRadiusesMap.count
+            // Add 1 for default auto distance
+            return SearchSettings.instance.searchRadiusesMap.count + 1
         case 2:
             return SearchSettings.instance.sortValuesMap.count
         case 3:
@@ -121,8 +122,20 @@ CategoryCellDelegate {
             return cell
         case 1:
             let cell = getCellWithIdentifier("distanceCell") as! DistanceCell
+            if indexPath.row == 0 {
+                cell.distanceLabel.text = "Auto"
+                cell.distanceValue = nil
+                
+                cell.accessoryType = .none
+                if searchRadiusInMeters == nil {
+                    cell.accessoryType = .checkmark
+                }
+                
+                return cell
+            }
+
             let distanceData = SearchSettings.instance.searchRadiusesMap
-            let distanceDatum = distanceData[indexPath.row]
+            let distanceDatum = distanceData[indexPath.row - 1]
             let name = distanceDatum["name"] as! String
             let value = distanceDatum["value"] as! Int
             
