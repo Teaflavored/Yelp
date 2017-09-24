@@ -15,6 +15,7 @@ UITableViewDataSource,
 UISearchBarDelegate,
 FilterDelegate {
     
+    @IBOutlet weak var filterButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
 
     fileprivate var businesses: [Business]! = []
@@ -31,7 +32,8 @@ FilterDelegate {
         super.viewDidLoad()
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
-        
+
+        filterButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: UIControlState.normal)
         // Initialize the UISearchBar
         searchBar = UISearchBar()
         searchBar.delegate = self

@@ -18,6 +18,8 @@ UITableViewDelegate,
 DealsCellDelegate,
 CategoryCellDelegate {
 
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     @IBOutlet weak var filterTable: UITableView!
     weak var delegate: FilterDelegate?
     lazy var onSaveFilters = {
@@ -38,6 +40,9 @@ CategoryCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        cancelButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: UIControlState.normal)
+        saveButton.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.white], for: UIControlState.normal)
     }
 
     override func didReceiveMemoryWarning() {
