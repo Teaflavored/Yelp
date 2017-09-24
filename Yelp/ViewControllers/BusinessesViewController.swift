@@ -11,17 +11,26 @@ import AFNetworking
 
 class BusinessesViewController: UIViewController,
     UITableViewDelegate,
-UITableViewDataSource {
+UITableViewDataSource,
+UISearchBarDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
     var businesses: [Business]! = []
+    var searchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        // Initialize the UISearchBar
+        searchBar = UISearchBar()
+        searchBar.delegate = self
+        
+        // Add SearchBar to the NavigationBar
+        searchBar.sizeToFit()
+        navigationItem.titleView = searchBar
 
         // table view setup
         Business.searchWithTerm(term: "Thai", completion: {
@@ -30,20 +39,8 @@ UITableViewDataSource {
             self.businesses = businesses
             self.tableView.reloadData()
             
-        }
+            }
         )
-        
-        /* Example of Yelp search with more search options specified
-         Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
-         self.businesses = businesses
-         
-         for business in businesses {
-         print(business.name!)
-         print(business.address!)
-         }
-         }
-         */
-        
     }
     
     override func didReceiveMemoryWarning() {
