@@ -212,6 +212,31 @@
                                             <outlet property="distanceLabel" destination="KfR-qn-2Oc" id="H6U-kE-KWo"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="sortCell" id="uZ7-po-PiE" customClass="SortCell" customModule="Yelp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="116" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uZ7-po-PiE" id="rrs-Zw-8dv">
+                                            <rect key="frame" x="0.0" y="0.0" width="336" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sort label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-H6-sxN">
+                                                    <rect key="frame" x="8" y="8" width="320" height="27.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Rxe-H6-sxN" firstAttribute="top" secondItem="rrs-Zw-8dv" secondAttribute="top" constant="8" id="OFv-iI-ze8"/>
+                                                <constraint firstAttribute="bottom" secondItem="Rxe-H6-sxN" secondAttribute="bottom" constant="8" id="VFp-mb-Uid"/>
+                                                <constraint firstAttribute="trailing" secondItem="Rxe-H6-sxN" secondAttribute="trailing" constant="8" id="rWj-ZS-PH1"/>
+                                                <constraint firstItem="Rxe-H6-sxN" firstAttribute="leading" secondItem="rrs-Zw-8dv" secondAttribute="leading" constant="8" id="u0E-CV-hfO"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="sortLabel" destination="Rxe-H6-sxN" id="smz-rI-kCO"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Mfd-Ex-fHm" id="LOJ-y3-IjZ"/>

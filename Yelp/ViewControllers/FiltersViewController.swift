@@ -96,6 +96,11 @@ DealsCellDelegate {
             let distanceCell = cell as! DistanceCell
             searchRadiusInMeters = distanceCell.distanceValue
             filterTable.reloadData()
+        case 2:
+            let sortCell = cell as! SortCell
+            let sortValue = sortCell.sortValue
+            sort = sortValue!
+            filterTable.reloadData()
         default:
             return
         }
@@ -124,6 +129,23 @@ DealsCellDelegate {
                 } else {
                     cell.accessoryType = .none
                 }
+            } else {
+                cell.accessoryType = .none
+            }
+
+            return cell
+        case 2:
+            let cell = getCellWithIdentifier("sortCell") as! SortCell
+            let sortData = SearchSettings.instance.sortValuesMap
+            let sortDatum = sortData[indexPath.row]
+            let name = sortDatum["name"] as! String
+            let sortValue = sortDatum["value"] as! YelpSortMode
+
+            cell.sortLabel.text = name
+            cell.sortValue = sortValue
+
+            if sortValue == sort {
+                cell.accessoryType = .checkmark
             } else {
                 cell.accessoryType = .none
             }

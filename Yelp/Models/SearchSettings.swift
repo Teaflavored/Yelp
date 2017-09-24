@@ -19,10 +19,10 @@ class SearchSettings {
         ["name": "25 miles", "value": 40000],
     ]
     
-    let sortValuesMap: [YelpSortMode: String] = [
-        YelpSortMode.bestMatched: "Best matched",
-        YelpSortMode.distance: "Distance",
-        YelpSortMode.highestRated: "Highest Rated",
+    let sortValuesMap: [[String: Any]] = [
+        ["name": "Best Matched", "value": YelpSortMode.bestMatched],
+        ["name": "Distance", "value": YelpSortMode.distance],
+        ["name": "Highest Rated", "value": YelpSortMode.highestRated],
     ]
 
     let categories: [[String: String]] = [["name" : "Afghan", "code": "afghani"],

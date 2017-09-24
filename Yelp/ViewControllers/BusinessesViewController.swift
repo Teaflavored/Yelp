@@ -87,6 +87,7 @@ FilterDelegate {
         viewController.delegate = self
         viewController.hasDeals = SearchSettings.instance.getDealsValue()
         viewController.searchRadiusInMeters = SearchSettings.instance.getSearchRadius()
+        viewController.sort = SearchSettings.instance.getSort()
     }
 }
 
